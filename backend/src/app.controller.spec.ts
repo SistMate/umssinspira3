@@ -1,22 +1,34 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { Controller, Get } from '@nestjs/common';
+import { SupabaseService } from './config/supabase.service';
 
-describe('AppController', () => {
-  let appController: AppController;
+@Controller()
+export class AppController {
+  constructor(private readonly supabaseService: SupabaseService) {}
 
-  beforeEach(async () => {
-    const app: TestingModule = await Test.createTestingModule({
-      controllers: [AppController],
-      providers: [AppService],
-    }).compile();
+  @Get()
+  getHello(): string {
+    return 'UMSSINSPIRA2 Backend funcionando';
+  }
 
-    appController = app.get<AppController>(AppController);
-  });
+  @Get('supabase-test')
+  async testSupabase() {
+    const { data, error } = await this.supabaseService
+      .getClient()
+      .from('usuario')
+      .select('*')
+      .limit(1);
 
-  describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
-    });
-  });
-});
+    if (error) {
+      return {
+        conectado: false,
+        error: error.message,
+      };
+    }
+
+    return {
+      conectado: true,
+      mensaje: 'Conexión con Supabase exitosa',
+      data,
+    };
+  }
+}
