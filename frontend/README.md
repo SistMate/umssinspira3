@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Experiencia laboral
+
+La pantalla está disponible en `/profile/experience`; desde ahí puedes crear,
+consultar, editar y eliminar experiencias. Configura `NEXT_PUBLIC_API_URL` si el
+backend no está en `http://localhost:3001`.
+
+Para desarrollo, inicia Next.js con `npm run dev` en `frontend` y NestJS con
+`npm run start:dev` en `backend`. Configura las variables de Supabase y
+`PROFILE_EGRESADO_ID` en `backend/.env`.

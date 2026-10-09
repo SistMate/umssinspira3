@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SupabaseModule } from './config/supabase.module';
+import { ExperienceModule } from './modules/profile/experiences/experience.module';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { SupabaseModule } from './config/supabase.module';
       isGlobal: true,
     }),
     SupabaseModule,
+    ExperienceModule,
   ],
   controllers: [AppController],
   providers: [AppService],
