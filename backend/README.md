@@ -116,3 +116,13 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## Experiencia laboral
+
+El módulo REST está disponible en `http://localhost:3001/api/profile/experiences`.
+Configura `SUPABASE_URL`, `SUPABASE_ANON_KEY` y `PROFILE_EGRESADO_ID` en el archivo
+`.env` del backend. `PROFILE_EGRESADO_ID` debe ser el UUID de un egresado existente.
+
+Aplica `../supabase/migrations/0001_experiencia_laboral.sql` sobre una base que ya
+tenga la tabla `public.egresado`. La API usa actualmente un único perfil configurado
+para desarrollo; no reemplaza autenticación ni aislamiento multiusuario.
