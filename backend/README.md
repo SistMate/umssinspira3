@@ -28,20 +28,28 @@
 ## Project setup
 
 ```bash
-$ npm install
+$ npm ci --prefix backend
 ```
+
+The backend requires Supabase credentials. In PowerShell, create `backend\.env` from the example:
+
+```powershell
+Copy-Item backend\.env.example backend\.env
+```
+
+Set `SUPABASE_URL` and `SUPABASE_ANON_KEY` in that file before starting the server.
 
 ## Compile and run the project
 
 ```bash
-# development
-$ npm run start
+# development (from the repository root)
+$ npm run dev:backend
 
 # watch mode
-$ npm run start:dev
+$ npm --prefix backend run start:dev
 
 # production mode
-$ npm run start:prod
+$ npm --prefix backend run start:prod
 ```
 
 ## Run tests
